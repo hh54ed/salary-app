@@ -1,4 +1,4 @@
-// 要素を取得
+
 const dateInput = document.getElementById("work-date");
 const wageInput = document.getElementById("wage");
 const hoursInput = document.getElementById("hours");
@@ -7,7 +7,7 @@ const saveButton = document.getElementById("save-btn");
 const historyList = document.getElementById("history-list");
 const totalSpan = document.getElementById("total-amount");
 
-// データを取得（なければ空っぽ）
+
 let workLog = JSON.parse(localStorage.getItem("salaryAppLogs")) || [];
 
 // 画面表示
@@ -42,35 +42,35 @@ saveButton.addEventListener("click", () => {
   saveAndRender();
 });
 
-// ★データを保存して画面を更新する関数（セットで使うことが多いのでまとめました）
+// データを保存して画面を更新する関数
 function saveAndRender() {
   localStorage.setItem("salaryAppLogs", JSON.stringify(workLog));
   updateDisplay();
 }
 
-// ★画面を表示する関数（削除ボタンの機能もここで付けます）
+
 function updateDisplay() {
   historyList.innerHTML = "";
   let totalSalary = 0;
 
-  // forEachの2つ目の引数「index」には「0, 1, 2...」という順番が入ります
+  
   workLog.forEach((record, index) => {
     const listItem = document.createElement("li");
 
-    // 1. テキスト部分を作る
+    // テキスト部分を作る
     const textSpan = document.createElement("span");
     textSpan.innerHTML = `<strong>${record.date}</strong> : ${record.hours}時間 / ${record.salary.toLocaleString()}円 `;
 
-    // 2. 削除ボタンを作る
+    //  削除ボタンを作る
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "削除";
     deleteBtn.className = "delete-btn"; // CSSで見た目を変えられるようにクラスをつける
 
-    // ★削除ボタンが押された時の処理
+    // 削除ボタンが押された時の処理
     deleteBtn.addEventListener("click", () => {
-      // 確認ダイアログを出す（誤操作防止の紳士的配慮）
+      // 確認ダイアログを出す
       if (confirm("この記録を削除してもよろしいですか？")) {
-        // 配列から「index」番目のデータを「1つ」削除する
+        
         workLog.splice(index, 1);
         // 保存して表示更新
         saveAndRender();
@@ -89,3 +89,4 @@ function updateDisplay() {
 
   totalSpan.textContent = totalSalary.toLocaleString();
 }
+
