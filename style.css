@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+} /* スマホで見やすく */
+.box {
+  margin-bottom: 15px;
+}
+input {
+  padding: 8px;
+  font-size: 16px;
+}
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+/* 削除ボタン専用のスタイル */
+.delete-btn {
+  background-color: #dc3545; /* 赤色 */
+  padding: 5px 10px; /* 少し小さめに */
+  margin-left: 10px; /* 文字との間隔を空ける */
+  font-size: 12px;
+}
+.delete-btn:hover {
+  background-color: #a71d2a; /* マウスを乗せた時に濃くする */
+}
+
+/* 記録リストの見た目 */
+#history-list {
+  list-style: none; /* ・を消す */
+  padding: 0;
+  margin-top: 20px;
+  border-top: 2px solid #eee;
+}
+#history-list li {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}

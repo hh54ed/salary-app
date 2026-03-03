@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>給与計算アプリ</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>給与管理カレンダー</h1>
+
+    <div class="box">
+      <label>日付:</label><br />
+      <input type="date" id="work-date" />
+    </div>
+    <div class="box">
+      <label>時給（円）：</label><br />
+      <input type="number" id="wage" placeholder="例：1100" />
+    </div>
+
+    <div class="box">
+      <label>働いた時間（時間）：</label><br />
+      <input type="number" id="hours" placeholder="例：5" />
+    </div>
+    <div class="box">
+      <input type="checkbox" id="night-shift" />
+      <label for="night-shift">深夜割増（1.25倍）を適用する</label>
+    </div>
+    <button id="save-btn">記録する</button>
+    <h3>勤務記録</h3>
+    <ul id="history-list"></ul>
+
+    <p>
+      今月の合計:<span
+        id="total-amount"
+        style="font-weight: bold; color: #007bff"
+        >0</span
+      >
+      円
+    </p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
